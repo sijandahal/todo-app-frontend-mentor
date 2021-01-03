@@ -1,9 +1,11 @@
+var body = document.body;
 const form = document.querySelector('.form');
 let value = document.querySelector('.inputtext');
 const collection = document.querySelector('.collection');
 const items = document.querySelector('.items');
 const darkimage = document.querySelector('#darkimage');
-var body = document.body;
+const link = document.querySelector('.link')
+
 
 
 
@@ -12,6 +14,7 @@ var body = document.body;
 //event listeners
 form.addEventListener('submit', formSubmit);
 darkimage.addEventListener('click', changeImage);
+collection.addEventListener('click', chageList);
 
 
 //formSubmit
@@ -34,8 +37,7 @@ function formSubmit(e) {
     </label>
     ${inputValue}
     <a href="#">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
-    </a>
+    <img src="./images/icon-cross.svg" alt="Cross" class = "delete"> </a>
   </li>`
    }
     //getting the child elements from the collection
@@ -49,7 +51,6 @@ function formSubmit(e) {
 }
 
 //imagechange
-
 var toggle = false;
 function changeImage() {
     if (toggle === true) {
@@ -59,4 +60,12 @@ function changeImage() {
     }
     toggle = !toggle; 
     body.classList.toggle("toggle");
+}
+
+//delete li from the collection
+
+function chageList(e) {
+   if (e.target.classList.contains = 'delete') {
+     e.target.parentElement.parentElement.remove();
+   }
 }
