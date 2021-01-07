@@ -116,6 +116,7 @@ header img {
 .checkbox__input input:checked + .checkbox__control svg {
   transform: scale(1);
 }
+
 .checkbox__input input:disabled + .checkbox__control {
   color: var(--disabled);
 }
@@ -188,4 +189,19 @@ header img {
 }
 .list-collection:hover a {
   opacity: 1;
+}
+
+/* add class to the li */
+
+.list-collection.line-through {
+  text-decoration: line-through;
+}
+
+.checkbox__input,
+.checkbox__control{
+  pointer-events: none;
+}
+
+.checkbox {
+  cursor: pointer;
 }

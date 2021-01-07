@@ -4,18 +4,28 @@ let value = document.querySelector('.inputtext');
 const collection = document.querySelector('.collection');
 const items = document.querySelector('.items');
 const darkimage = document.querySelector('#darkimage');
-const link = document.querySelector('.link')
+const link = document.querySelector('.link');
+const checkbox = document.querySelectorAll('.checkbox');
+const listItems = document.querySelectorAll('.list-collection');
+const completedButton = document.querySelector('.completed');
+const activeButton = document.querySelector('.activee');
+const all = document.querySelector('.all');
+const clearButton = document.querySelector('.clearCompleted');
 
+//list item childrens
 
-
-
+const listedItems = collection.childNodes;
+let li = document.querySelectorAll('.list-collection');
 
 
 //event listeners
 form.addEventListener('submit', formSubmit);
 darkimage.addEventListener('click', changeImage);
 collection.addEventListener('click', chageList);
-
+completedButton.addEventListener('click', completedTasks);
+activeButton.addEventListener('click', activeList);
+all.addEventListener('click', allListItems);
+clearButton.addEventListener('click', clearCompleted);
 
 //formSubmit
 function formSubmit(e) {
@@ -63,9 +73,66 @@ function changeImage() {
 }
 
 //delete li from the collection
-
 function chageList(e) {
-   if (e.target.classList.contains = 'delete') {
+   if (e.target.classList.contains('delete')) {
      e.target.parentElement.parentElement.remove();
    }
+    
+   //for checkmark
+   if (e.target.classList.contains('checkbox')) {
+     const li = e.target.parentElement;
+     li.classList.toggle('line-through')
+   }
 }
+
+//completed button
+
+function completedTasks(e) {
+  li.forEach(function(item) {
+   if  (item.classList.contains('line-through')) {
+     item.style.display = "flex";
+     console.log("hello");
+   }
+   else {
+     item.style.display = "none"
+   }
+   })
+   e.preventDefault();
+}
+//active button
+function activeList(e) {
+  li.forEach(function(item) {
+   if  (!item.classList.contains('line-through')) {
+     item.style.display = "flex";
+   }
+   else {
+     item.style.display = "none"
+   }
+   });
+   e.preventDefault();
+  };
+
+//allitems
+
+function allListItems(e) {
+  li.forEach(function(item) {
+    if  (item.classList.contains('list-collection')) {
+      item.style.display = "flex";
+      console.log("hello");
+    }
+    })
+    e.preventDefault();
+  }
+
+//clearButton
+
+function clearCompleted(e) {
+  li.forEach(function(item) {
+    if  (item.classList.contains('line-through')) {
+    item.style.display = 'none';
+    }
+   e.preventDefault(e);
+})
+}
+
+
