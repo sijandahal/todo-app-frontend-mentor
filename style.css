@@ -84,19 +84,51 @@ header img {
   font-size: 2rem;
 }
 
-
 .checkbox__control {
   display: inline-grid;
   width: 25px;
   height: 25px;
   border-radius: 100%;
-  border: 1px solid currentColor;
+  border: 1px solid var(--very-Dark-Grayish-Blue);
 }
+/* body.toggle .checkbox:hover .checkbox__control{
+  border: 1px solid transparent;
+  border-radius: 100%;
+  background: 
+      linear-gradient(white, white), 
+      linear-gradient(
+    to bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%)
+  );
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+} */
+
+body.toggle .checkbox:hover .checkbox__control{ 
+  border: 1px solid transparent;
+  background: 
+      linear-gradient(
+    to bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%)
+  );
+}
+
+ .checkbox:hover .checkbox__control{
+  border: 1px solid transparent;
+  border-radius: 100%;
+  background: 
+      linear-gradient(to right,  hsl(235, 24%, 19%),  hsl(235, 24%, 19%)), 
+      linear-gradient(
+    to bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%)
+  );
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+}
+
+
 .checkbox__control svg {
   transition: transform 0.1s ease-in 25ms;
   transform: scale(0);
   margin-top: 8px;
-  margin-left: 8px;
+  margin-left: 6px;
   transform-origin: bottom left;
 }
 
@@ -112,10 +144,9 @@ header img {
   width: 1em;
   height: 1em;
 }
-.checkbox__input input:focus + .checkbox__control {
-  box-shadow: 0 0 0 0.05em #fff, 0 0 0.15em 0.1em currentColor;
+.checkbox__input input:checked + .checkbox__control {
   background-image: linear-gradient(
-    to right,
+    to bottom,
     hsl(192, 100%, 67%),
     hsl(280, 87%, 65%)
   );
@@ -124,9 +155,9 @@ header img {
   transform: scale(1);
 }
 
-.checkbox__input input:disabled + .checkbox__control {
+/* .checkbox__input input:disabled + .checkbox__control {
   color: var(--disabled);
-}
+} */
 
 .form {
   margin: 0 0 28px;
@@ -147,9 +178,10 @@ header img {
   outline: none;
   color: #fff;
 }
-.form input::placeholder {
+.form input::placeholder, .form input {
+  font-family: "Josefin Sans", sans-serif;
   color: #fff;
-  font-weight: 700;
+  font-size: 18px;
 }
 
 .collection {
@@ -255,6 +287,12 @@ body.toggle .collection li {
   border-color: hsl(255, 14%, 95%)
 }
 
+body.toggle .container .footer a.completed:hover, body.toggle .container .footer a.clearCompleted:hover, body.toggle .container .footer a.activee:hover {
+  color: var(--Very-Dark-Grayish-Blue);
+}
+body.toggle .list-collection:hover {
+  color: var(--Very-Dark-Grayish-Blue);
+}
 .form input::placeholder { 
   color: var(--Dark-Grayish-Blue);
 }
@@ -286,5 +324,5 @@ body.toggle .collection li {
   body.toggle .footer .state {
     background-color: #fff;
   }
-
+   
 }
