@@ -11,6 +11,7 @@ const completedButton = document.querySelector(".completed");
 const activeButton = document.querySelector(".activee");
 const all = document.querySelector(".all");
 const ClearButton = document.querySelector(".clearCompleted");
+const backgroundImage = document.querySelector('#DarkImageBackground')
 
 //event listeners
 form.addEventListener("submit", formSubmit);
@@ -61,8 +62,10 @@ var toggle = false;
 function changeImage() {
   if (toggle === true) {
     darkimage.src = "./images/icon-sun.svg";
+    DarkImageBackground.src = "./images/bg-desktop-dark.jpg"
   } else {
-    darkimage.src = "/images/icon-moon.svg";
+    darkimage.src = "./images/icon-moon.svg";
+    DarkImageBackground.src = "./images/bg-desktop-light.jpg"
   }
   toggle = !toggle;
   body.classList.toggle("toggle");
@@ -119,7 +122,7 @@ function allListItems(e) {
   const listedItems = collection.childNodes;
   let li = document.querySelectorAll(".list-collection");
   li.forEach(function (item) {
-    if (item.classList.contains("line-through")) {
+    if (item.classList.contains("list-collection")) {
       item.style.display = "flex";
       console.log("hello");
     }
@@ -136,6 +139,7 @@ function clearButton(e) {
       item.style.display = "none";
     }
   });
+  
   e.preventDefault();
   elementsCount();
 }

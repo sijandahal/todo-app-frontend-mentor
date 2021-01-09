@@ -7,6 +7,12 @@
   --very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
   --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
   --Bright-Blue: hsl(220, 98%, 61%);
+
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+--Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+--Light-Grayish-Blue: hsl(233, 11%, 84%);
+--Dark-Grayish-Blue: hsl(236, 9%, 61%);
+--Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
 }
 
 * {
@@ -20,13 +26,12 @@ body {
   font-size: 18px;
   font-weight: 400;
   background-color: var(--very-dark-blue);
+  transition: .5s ease-in-out;
 }
 
-body.toggle {
-  background-color: hsl(0, 0%, 98%);
-}
 a {
   text-decoration: none;
+  transition: .5s ease-in-out;
 }
 header {
   width: 100%;
@@ -65,6 +70,11 @@ header img {
   float: right;
   cursor: pointer;
 }
+
+.container .list {
+  border-radius: 5px;
+}
+
 /* Custom checkbox */
 .checkbox {
   display: grid;
@@ -72,11 +82,8 @@ header img {
   grid-template-columns: min-content auto;
   grid-gap: 0.5em;
   font-size: 2rem;
-  color: var(--color);
 }
-.checkbox--disabled {
-  color: var(--disabled);
-}
+
 
 .checkbox__control {
   display: inline-grid;
@@ -142,6 +149,7 @@ header img {
 }
 .form input::placeholder {
   color: #fff;
+  font-weight: 700;
 }
 
 .collection {
@@ -173,6 +181,9 @@ header img {
   color: var(--Dark-Grayish-Blue);
   font-size: 12px;
 }
+.container .footer span a {
+  font-weight: 700;
+}
 .container .footer .state a {
   margin-right: 10px;
 }
@@ -191,8 +202,19 @@ header img {
   opacity: 1;
 }
 
-/* add class to the li */
+.list-collection:hover {
+  transition: .2s ease-in-out;
+  cursor: pointer;
+  color: var(--Light-Grayish-Blue-hover);
+}
+.container .footer a.completed:hover, .container .footer a.clearCompleted:hover, .container .footer a.activee:hover {
+  color: var(--Light-Grayish-Blue-hover);
+}
+ .checkbox__control:hover {
+  border-color: pink;
+}
 
+/* add class to the li */
 .list-collection.line-through {
   text-decoration: line-through;
 }
@@ -204,4 +226,65 @@ header img {
 
 .checkbox {
   cursor: pointer;
+}
+
+/* dark mode and light mode */
+
+body.toggle {
+  background-color: var(--Very-Light-Gray);
+}
+
+body.toggle .form #label {
+  background-color: #fff
+}
+
+body.toggle .form input {
+  color: var(--very-dark-blue);
+}
+
+body.toggle ::placeholder {
+  color: var(--very-dark-blue);
+}
+
+body.toggle .collection, body.toggle .footer {
+  background-color: #fff;
+}
+
+body.toggle .collection li {
+  color: var(--Dark-Grayish-Blue);
+  border-color: hsl(255, 14%, 95%)
+}
+
+.form input::placeholder { 
+  color: var(--Dark-Grayish-Blue);
+}
+
+@media only screen and (max-width:600px) {
+   .container {
+     max-width: 378px;
+     width: 100%;
+     padding: 0 25px;
+   }
+
+   li {
+     font-size: 13px;
+   }
+   .footer {
+     position: relative;
+   }
+ .footer .state {
+     position: absolute;
+     top: 80px;
+     display: flex;
+     justify-content: center;
+     padding: 18px 0;
+     width: 100%;
+     left: 0;
+     background: var(--very-Dark-Desaturated-Blue);
+     border-radius: 5px;
+ }
+  body.toggle .footer .state {
+    background-color: #fff;
+  }
+
 }
